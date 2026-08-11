@@ -8,7 +8,7 @@
       "action": "error"
     },
     "telemetry": {
-      "action": "monitor"
+      "action": "warn"
     },
     "troll": {
       "action": "error"
