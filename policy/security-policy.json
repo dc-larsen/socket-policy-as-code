@@ -1,0 +1,17 @@
+{
+  "policyDefault": "high",
+  "policyRules": {
+    "didYouMean": {
+      "action": "error"
+    },
+    "recentlyPublished": {
+      "action": "error"
+    },
+    "telemetry": {
+      "action": "warn"
+    },
+    "troll": {
+      "action": "error"
+    }
+  }
+}

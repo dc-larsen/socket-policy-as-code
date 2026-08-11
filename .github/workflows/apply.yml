@@ -1,0 +1,29 @@
+name: Apply policy to Socket
+
+# GitHub is the source of truth. Any change to the policy file that lands on
+# main is applied to the Socket org and verified by reading it back.
+on:
+  push:
+    branches: [main]
+    paths:
+      - policy/security-policy.json
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: socket-policy-sync
+  cancel-in-progress: false
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Apply and verify
+        env:
+          SOCKET_API_KEY: ${{ secrets.SOCKET_API_KEY }}
+          SOCKET_ORG_SLUG: ${{ vars.SOCKET_ORG_SLUG }}
+        run: python3 scripts/socket_policy.py apply

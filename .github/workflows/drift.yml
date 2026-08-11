@@ -1,0 +1,53 @@
+name: Detect policy drift
+
+# Mirrors the other direction: if someone edits the policy in the Socket
+# dashboard, this job notices and opens a pull request updating the file to
+# match. Merging the PR accepts the dashboard change; closing it and pushing
+# a revert to the file re-applies the repo version through the apply
+# workflow. Either way the repo and the dashboard reconverge through a
+# reviewed change.
+on:
+  schedule:
+    - cron: "17 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: socket-policy-sync
+  cancel-in-progress: false
+
+jobs:
+  drift:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Pull live policy
+        env:
+          SOCKET_API_KEY: ${{ secrets.SOCKET_API_KEY }}
+          SOCKET_ORG_SLUG: ${{ vars.SOCKET_ORG_SLUG }}
+        run: python3 scripts/socket_policy.py pull
+
+      - name: Open a PR if the live policy differs from the file
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet -- policy/security-policy.json; then
+            echo "No drift: the live policy matches the file."
+            exit 0
+          fi
+          echo "Drift detected:"
+          git diff -- policy/security-policy.json
+          branch="policy-drift-${{ github.run_id }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git add policy/security-policy.json
+          git commit -m "Mirror dashboard policy change into the repo"
+          git push -u origin "$branch"
+          gh pr create \
+            --title "Policy drift: dashboard differs from the repo" \
+            --body "The live Socket security policy no longer matches policy/security-policy.json. Someone likely changed it in the dashboard. Merge to accept the dashboard change, or close this PR and push the intended values to the file so the apply workflow re-asserts them."
