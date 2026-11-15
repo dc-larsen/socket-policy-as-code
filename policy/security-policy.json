@@ -1,17 +1,434 @@
 {
   "policyDefault": "high",
   "policyRules": {
+    "ambiguousClassifier": {
+      "action": "ignore"
+    },
+    "badEncoding": {
+      "action": "ignore"
+    },
+    "badSemver": {
+      "action": "ignore"
+    },
+    "badSemverDependency": {
+      "action": "monitor"
+    },
+    "bidi": {
+      "action": "ignore"
+    },
+    "binScriptConfusion": {
+      "action": "ignore"
+    },
+    "browserExtensionContentScript": {
+      "action": "ignore"
+    },
+    "browserExtensionHostPermission": {
+      "action": "ignore"
+    },
+    "browserExtensionPermission": {
+      "action": "ignore"
+    },
+    "browserExtensionWildcardHostPermission": {
+      "action": "ignore"
+    },
+    "chromeContentScript": {
+      "action": "ignore"
+    },
+    "chromeHostPermission": {
+      "action": "ignore"
+    },
+    "chromePermission": {
+      "action": "ignore"
+    },
+    "chromeWildcardHostPermission": {
+      "action": "ignore"
+    },
+    "chronoAnomaly": {
+      "action": "ignore"
+    },
+    "compromisedSSHKey": {
+      "action": "ignore"
+    },
+    "copyleftLicense": {
+      "action": "ignore"
+    },
+    "criticalCVE": {
+      "action": "error"
+    },
+    "cve": {
+      "action": "warn"
+    },
+    "debugAccess": {
+      "action": "ignore"
+    },
+    "deprecated": {
+      "action": "warn"
+    },
+    "deprecatedException": {
+      "action": "ignore"
+    },
+    "deprecatedLicense": {
+      "action": "ignore"
+    },
     "didYouMean": {
       "action": "error"
+    },
+    "dynamicRequire": {
+      "action": "ignore"
+    },
+    "emptyPackage": {
+      "action": "ignore"
+    },
+    "envVars": {
+      "action": "ignore"
+    },
+    "explicitlyUnlicensedItem": {
+      "action": "ignore"
+    },
+    "extraneousDependency": {
+      "action": "ignore"
+    },
+    "fileDependency": {
+      "action": "ignore"
+    },
+    "filesystemAccess": {
+      "action": "ignore"
+    },
+    "floatingDependency": {
+      "action": "monitor"
+    },
+    "generic": {
+      "action": "ignore"
+    },
+    "ghaArgToEnv": {
+      "action": "ignore"
+    },
+    "ghaArgToOutput": {
+      "action": "ignore"
+    },
+    "ghaArgToSink": {
+      "action": "ignore"
+    },
+    "ghaContextToEnv": {
+      "action": "ignore"
+    },
+    "ghaContextToOutput": {
+      "action": "ignore"
+    },
+    "ghaContextToSink": {
+      "action": "ignore"
+    },
+    "ghaEnvToSink": {
+      "action": "ignore"
+    },
+    "gitDependency": {
+      "action": "error"
+    },
+    "gitHubDependency": {
+      "action": "error"
+    },
+    "gptAnomaly": {
+      "action": "ignore"
+    },
+    "gptDidYouMean": {
+      "action": "ignore"
+    },
+    "gptMalware": {
+      "action": "error"
+    },
+    "gptSecurity": {
+      "action": "monitor"
+    },
+    "hasNativeCode": {
+      "action": "ignore"
+    },
+    "highEntropyStrings": {
+      "action": "ignore"
+    },
+    "homoglyphs": {
+      "action": "ignore"
+    },
+    "httpDependency": {
+      "action": "error"
+    },
+    "installScripts": {
+      "action": "monitor"
+    },
+    "invalidPackageJSON": {
+      "action": "ignore"
+    },
+    "invisibleChars": {
+      "action": "ignore"
+    },
+    "licenseChange": {
+      "action": "ignore"
+    },
+    "licenseException": {
+      "action": "ignore"
+    },
+    "licenseSpdxDisj": {
+      "action": "warn"
+    },
+    "longStrings": {
+      "action": "ignore"
+    },
+    "majorRefactor": {
+      "action": "ignore"
+    },
+    "malware": {
+      "action": "error"
+    },
+    "manifestConfusion": {
+      "action": "monitor"
+    },
+    "mediumCVE": {
+      "action": "monitor"
+    },
+    "mildCVE": {
+      "action": "monitor"
+    },
+    "minifiedFile": {
+      "action": "ignore"
+    },
+    "miscLicenseIssues": {
+      "action": "ignore"
+    },
+    "missingAuthor": {
+      "action": "ignore"
+    },
+    "missingDependency": {
+      "action": "ignore"
+    },
+    "missingLicense": {
+      "action": "ignore"
+    },
+    "missingLockfile": {
+      "action": "ignore"
+    },
+    "missingTarball": {
+      "action": "ignore"
+    },
+    "mixedLicense": {
+      "action": "ignore"
+    },
+    "modifiedException": {
+      "action": "ignore"
+    },
+    "modifiedLicense": {
+      "action": "ignore"
+    },
+    "networkAccess": {
+      "action": "ignore"
+    },
+    "newAuthor": {
+      "action": "ignore"
+    },
+    "noAuthorData": {
+      "action": "ignore"
+    },
+    "noBugTracker": {
+      "action": "ignore"
+    },
+    "noLicenseFound": {
+      "action": "ignore"
+    },
+    "noREADME": {
+      "action": "ignore"
+    },
+    "noRepository": {
+      "action": "ignore"
+    },
+    "noTests": {
+      "action": "ignore"
+    },
+    "noV1": {
+      "action": "ignore"
+    },
+    "noWebsite": {
+      "action": "ignore"
+    },
+    "nonOSILicense": {
+      "action": "ignore"
+    },
+    "nonSPDXLicense": {
+      "action": "ignore"
+    },
+    "nonpermissiveLicense": {
+      "action": "ignore"
+    },
+    "notFound": {
+      "action": "ignore"
+    },
+    "notice": {
+      "action": "ignore"
+    },
+    "obfuscatedFile": {
+      "action": "warn"
+    },
+    "obfuscatedRequire": {
+      "action": "ignore"
+    },
+    "oversizedManifest": {
+      "action": "ignore"
+    },
+    "peerDependency": {
+      "action": "ignore"
+    },
+    "pendingScan": {
+      "action": "ignore"
+    },
+    "policy": {
+      "action": "ignore"
+    },
+    "potentialVulnerability": {
+      "action": "monitor"
     },
     "recentlyPublished": {
       "action": "error"
     },
+    "semverAnomaly": {
+      "action": "ignore"
+    },
+    "shellAccess": {
+      "action": "ignore"
+    },
+    "shellScriptOverride": {
+      "action": "ignore"
+    },
+    "shrinkwrap": {
+      "action": "warn"
+    },
+    "skillAutonomyAbuse": {
+      "action": "ignore"
+    },
+    "skillCommandInjection": {
+      "action": "ignore"
+    },
+    "skillDataExfiltration": {
+      "action": "ignore"
+    },
+    "skillDiscoveryAbuse": {
+      "action": "ignore"
+    },
+    "skillHardcodedSecrets": {
+      "action": "ignore"
+    },
+    "skillObfuscation": {
+      "action": "ignore"
+    },
+    "skillPreExecution": {
+      "action": "ignore"
+    },
+    "skillPromptInjection": {
+      "action": "ignore"
+    },
+    "skillResourceAbuse": {
+      "action": "ignore"
+    },
+    "skillSupplyChain": {
+      "action": "ignore"
+    },
+    "skillToolAbuse": {
+      "action": "ignore"
+    },
+    "skillToolChaining": {
+      "action": "ignore"
+    },
+    "skillTransitiveTrust": {
+      "action": "ignore"
+    },
+    "socketUpgradeAvailable": {
+      "action": "ignore"
+    },
+    "suspiciousStarActivity": {
+      "action": "ignore"
+    },
+    "suspiciousString": {
+      "action": "ignore"
+    },
     "telemetry": {
       "action": "warn"
     },
+    "tooManyFiles": {
+      "action": "ignore"
+    },
+    "trivialPackage": {
+      "action": "ignore"
+    },
     "troll": {
       "action": "error"
+    },
+    "typeModuleCompatibility": {
+      "action": "ignore"
+    },
+    "uncaughtOptionalDependency": {
+      "action": "ignore"
+    },
+    "unclearLicense": {
+      "action": "ignore"
+    },
+    "unidentifiedLicense": {
+      "action": "ignore"
+    },
+    "unmaintained": {
+      "action": "monitor"
+    },
+    "unpopularPackage": {
+      "action": "warn"
+    },
+    "unpublished": {
+      "action": "warn"
+    },
+    "unresolvedRequire": {
+      "action": "ignore"
+    },
+    "unresolvedYarnDependency": {
+      "action": "ignore"
+    },
+    "unsafeCopyright": {
+      "action": "ignore"
+    },
+    "unstableOwnership": {
+      "action": "warn"
+    },
+    "unusedDependency": {
+      "action": "ignore"
+    },
+    "urlStrings": {
+      "action": "ignore"
+    },
+    "usesEval": {
+      "action": "ignore"
+    },
+    "vsxActivationWildcard": {
+      "action": "ignore"
+    },
+    "vsxDebuggerContribution": {
+      "action": "ignore"
+    },
+    "vsxExtensionDependency": {
+      "action": "ignore"
+    },
+    "vsxExtensionPack": {
+      "action": "ignore"
+    },
+    "vsxProposedApiUsage": {
+      "action": "ignore"
+    },
+    "vsxUntrustedWorkspaceSupported": {
+      "action": "ignore"
+    },
+    "vsxVirtualWorkspaceSupported": {
+      "action": "ignore"
+    },
+    "vsxWebviewContribution": {
+      "action": "ignore"
+    },
+    "vsxWorkspaceContainsActivation": {
+      "action": "ignore"
+    },
+    "zeroWidth": {
+      "action": "ignore"
     }
   }
 }
